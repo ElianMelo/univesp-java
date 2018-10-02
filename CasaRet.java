@@ -1,31 +1,37 @@
-/*
-  Programa para calculara área de uma casa (e seus cômodos) de 3 cômodos:
-  uma sala de 10x10m, um banheiro e um quarto  de 5x7m cada
-*/
-class CasaRet {
+class CasaRet{
   public static void main(String[] args){
-    //Primeira Etapa
-
+    //Primeira parte
     /*
+    int lateral = 10; // comprimento da lateral da cabana
+    int cquarto = 7; // comprimento da lateral maior do quarto
+    int areaq; // área do quarto
+    int areas; // área da sala
+    int areat; // área total
+
     System.out.println("Programa para cálculo da área da casa");
-    System.out.println("A área da sala é " + 10*10);
-    System.out.println("A área do quarto é " + 5*7);
-    System.out.println("A área do banheiro é " + 5*7);
-    System.out.println("A área total é " + (10*10 + 5*7 + 5*7));
+    areas = lateral*lateral;
+    System.out.println("A área da sala é " +areas);
+    areaq = cquarto * (lateral/2);
+    System.out.println("A área do quarto é " +areaq);
+    System.out.println("A área do banheiro é " +areaq);
+    areat = areas + 2*areaq;
+    System.out.println("A área total é " +areat);
     */
 
-    //Segunda Etapa
-    int areaq; //área do quarto
-    int areas; //área da sala
-    int areat; //área total
+    //Segunda parte
+    float lateral = 11F; // comprimento da lateral da cabana
+    float cquarto = 7F; // comprimento da lateral maior do quarto
+    float areaq; // área do quarto
+    float areas; // área da sala
+    float areat; // área total
 
     System.out.println("Programa para cálculo da área da casa");
-    areas = 10*10;
-    System.out.println("A área da sala é " + areas);
-    areaq = 7*5;
-    System.out.println("A área do quarto é " + areaq);
-    System.out.println("A área do banheiro é " + areaq);
+    areas = lateral*lateral;
+    System.out.println("A área da sala é " +areas);
+    areaq = cquarto * (lateral/2);
+    System.out.println("A área do quarto é " +areaq);
+    System.out.println("A área do banheiro é " +areaq);
     areat = areas + 2*areaq;
-    System.out.println("A área total é " + areat);
+    System.out.println("A área total é " +areat);
   }
 }
