@@ -1,4 +1,6 @@
 class AreaCasa {
+  static double valorM2 = 1500;
+
   static void areaCasa(float lateral, float cquarto){
     float areaq; // área do quarto
     float areas; // área da sala
@@ -12,6 +14,12 @@ class AreaCasa {
     System.out.println("A área do banheiro é " +areaq);
     areat = areas + 2*areaq;
     System.out.println("A área total é " +areat);
+  }
+
+  static double valor(double area){
+    areat = 3;
+    valorM2 = 5;
+    return(valorM2*area);
   }
 
   static double areaPiscina(double raio){
