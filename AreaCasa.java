@@ -17,9 +17,8 @@ class AreaCasa {
   }
 
   static double valor(double area){
-    areat = 3;
-    valorM2 = 5;
-    return(valorM2*area);
+    if(area >= 0) return(valorM2*area);
+    return(-1);
   }
 
   static double areaPiscina(double raio){
@@ -27,12 +26,11 @@ class AreaCasa {
   }
 
   public static void main(String[] args){
-    double areap; // área piscina
-    double raio = 2; // raio da piscina
-
-    areaCasa(11, 7);
-
-    areap = areaPiscina(raio);
-    System.out.println("área: " + areap);
+    double preco;
+    boolean valorOK = false;
+    preco = valor(20);
+    valorOK = preco >= 0;
+    if (valorOK) System.out.println("O valor da construção é " + preco);
+    else System.out.println("Valor de área negativo");
   }
 }
