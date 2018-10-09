@@ -50,19 +50,13 @@ class AreaCasa {
 
   public static void main(String[] args){
     //Testes goes here
-    double area = 50;
-    int tipo = alvenaria;
-
     System.out.println("Area\tMaterial\tValor");
 
-    do{
-      tipo = alvenaria;
-      do{
+    for(double area = 50; area <= 200; area = area + 50){
+      for(int tipo = alvenaria; tipo <= plastico; tipo = tipo + 1){
         System.out.println(area + "\t" + tipo + "\t\t" + valorPiscina(area, tipo));
-        tipo = tipo + 1;
-      }while(tipo <= plastico);
-      area = area + 50;
-    }while(area <= 200);
+      }
+    }
 
   }
 }
