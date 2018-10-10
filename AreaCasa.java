@@ -1,3 +1,15 @@
+/*
+Autor: Elian Melo Morais
+
+Data de Criação: 10/10/2018
+
+Objetivo: O programa tem como objetivo calcular a área de uma casa, a área de sua piscina
+e o valor da piscina de acordo com cada material, além do preço do metro quardrado como referência.
+
+Baseado no curso Programação de Computadores da  Univesp - Universidade Virtual do Estado de São Paulo.
+Professores responsáveis: Luciano Digiampietri e Norton Trevisan Roman.
+https://www.youtube.com/playlist?list=PLxI8Can9yAHfK6wdaMUO74lmotAP7J7bi 
+*/
 class AreaCasa {
   //Variáveis globais
   static final int alvenaria = 0;
@@ -7,38 +19,40 @@ class AreaCasa {
   static double valorM2 = 1500;
 
   //Area da casa
-  static void areaCasa(float lateral, float cQuarto){
-    if(lateral >= 0 && cQuarto >= 0){
-      float areaQ; // área do quarto
-      float areaS; // área da sala
-      float areaT; // área total
+  static void areaCasa(float lateral, float compQuarto){
+
+    //Verifica se os valores são positivos
+    if(lateral >= 0 && compQuarto >= 0){
+      float areaQuarto; // Area do quarto
+      float areaSala; // Area da sala
+      float areaTotal; // Area total
 
       System.out.println("Programa para cálculo da área da casa");
-      areaS = lateral*lateral;
-      System.out.println("A área da sala é " +areaS);
-      areaQ = cQuarto * (lateral/2);
-      System.out.println("A área do quarto é " +areaQ);
-      System.out.println("A área do banheiro é " +areaQ);
-      areaT = areaS + 2*areaQ;
-      System.out.println("A área total é " +areaT);
+      areaSala = lateral * lateral;
+      System.out.println("A área da sala é " + areaSala);
+      areaQuarto = compQuarto * (lateral / 2);
+      System.out.println("A área do quarto é " + areaQuarto);
+      System.out.println("A área do banheiro é " + areaQuarto);
+      areaTotal = areaSala + 2 * areaQuarto;
+      System.out.println("A área total é " + areaTotal);
     }
     else
-      System.out.println("Erro: parâmetro<0");
+      System.out.println("Erro: parâmetro < 0");
   }
 
   //Valor metro quadrado
   static double valor(double area){
-    return(area >= 0 ? valorM2*area : -1);
+    return(area >= 0 ? valorM2 * area : -1);
   }
 
   //Valor metro quadrado para piscina
   static double valorPiscina(double area, int material){
     double valor;
     switch(material){
-      case alvenaria: return(area*1500);
-      case vinil: return(area*1100);
-      case fibra: return(area*750);
-      case plastico: return(area*500);
+      case alvenaria: return(area * 1500);
+      case vinil: return(area * 1100);
+      case fibra: return(area * 750);
+      case plastico: return(area * 500);
       default: return(-1);
     }
   }
@@ -49,14 +63,14 @@ class AreaCasa {
   }
 
   public static void main(String[] args){
-    //Testes goes here
+    //Aqui vão os testes
     System.out.println("Area\tMaterial\tValor");
 
-    for(double area = 50; area <= 200; area = area + 50){
-      for(int tipo = alvenaria; tipo <= plastico; tipo = tipo + 1){
+    for(double area = 50; area <= 200; area += 50){
+      for(int tipo = alvenaria; tipo <= plastico; tipo++){
         System.out.println(area + "\t" + tipo + "\t\t" + valorPiscina(area, tipo));
       }
     }
-
   }
+
 }
