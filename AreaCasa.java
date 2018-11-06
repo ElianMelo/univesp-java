@@ -62,14 +62,36 @@ class AreaCasa {
         return(raio >= 0 ? (Math.PI * Math.pow(raio, 2)) : -1);
     }
 
+    //Calculo da media
+    static double media(double[] arranjo){
+        double resp = 0;
+
+        for (double valor : arranjo) {
+            resp += valor;
+        }
+
+        return(resp/arranjo.length);
+    }
+
     public static void main(String[] args){
         //Aqui vão os testes
-        System.out.println("Area\tMaterial\tValor");
+        System.out.println(media(precos));
 
-        for(double area = 50; area <= 200; area += 50){
-            for(int tipo = alvenaria; tipo <= plastico; tipo++){
-                System.out.println(area + "\t" + tipo + "\t\t" + valorPiscina(area, tipo));
-            }
+        //Copiando arrays
+        int[] a1 = {0, 1, 2, 3};
+        int[] a2 = new int[4];
+
+        for (int i = 0; i < a1.length ; i++) {
+            a2[i] = a1[i];
         }
+
+        a1[3] = 9;
+
+        for(int val : a1)
+            System.out.print(val + ", ");
+        System.out.println();
+        for(int val : a2)
+            System.out.print(val + ", ");
+        System.out.println();
     }
 }
