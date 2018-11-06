@@ -11,12 +11,16 @@ Professores responsáveis: Luciano Digiampietri e Norton Trevisan Roman.
 https://www.youtube.com/playlist?list=PLxI8Can9yAHfK6wdaMUO74lmotAP7J7bi
 */
 class AreaCasa {
-    //Variáveis globais
+    //Materias da piscina
     static final int alvenaria = 0;
     static final int vinil = 1;
     static final int fibra = 2;
     static final int plastico = 3;
-    static double valorM2 = 1500;
+
+    //Preço dos materiais
+    static double precos[] = {1500, 1100, 750, 500};
+
+    static double valorM2 = 1500; //Valor do metro quadrado
 
     //Area da casa
     static void areaCasa(float lateral, float compQuarto){
@@ -40,21 +44,17 @@ class AreaCasa {
         System.out.println("Erro: parâmetro < 0");
     }
 
-    //Valor metro quadrado
+    //Valor do metro quadrado de acordo com a área
     static double valor(double area){
         return(area >= 0 ? valorM2 * area : -1);
     }
 
     //Valor metro quadrado para piscina
     static double valorPiscina(double area, int material){
-        double valor;
-        switch(material){
-            case alvenaria: return(area * 1500);
-            case vinil: return(area * 1100);
-            case fibra: return(area * 750);
-            case plastico: return(area * 500);
-            default: return(-1);
-        }
+        if(material < alvenaria || material > plastico || area < 0)
+            return(-1);
+
+        return(area * precos[material]);
     }
 
     //Area da piscina
