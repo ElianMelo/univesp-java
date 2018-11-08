@@ -17,10 +17,17 @@ class AreaCasa {
     static final int fibra = 2;
     static final int plastico = 3;
 
+    //Nomes dos materiais
+    static char[] nAlvenaria = {'A', 'l', 'v', 'e', 'n', 'a', 'r', 'i', 'a'};
+    static char[] nVinil = {'V', 'i', 'n', 'i', 'l'};
+    static char[] nFibra = {'F', 'i', 'b', 'r', 'a'};
+    static char[] nPlastico = {'P', 'l', 'a', 's', 't', 'i', 'c', 'o'};
+
     //Preço dos materiais
     static double precos[] = {1500, 1100, 750, 500};
 
-    static double valorM2 = 1500; //Valor do metro quadrado
+    //Valor do metro quadrado
+    static double valorM2 = 1500;
 
     //Area da casa
     static void areaCasa(float lateral, float compQuarto){
@@ -73,25 +80,31 @@ class AreaCasa {
         return(resp/arranjo.length);
     }
 
+    //Verifica se o caractere é minusculo
+    static boolean minuscula(char c){
+        return(c >= 'a' && c <= 'z');
+    }
+
     public static void main(String[] args){
         //Aqui vão os testes
-        System.out.println(media(precos));
+        //Type Casting
+        char c = 'o';
+        char x = '\u00F6';
+        int y = 246;
 
-        //Copiando arrays
-        int[] a1 = {0, 1, 2, 3};
-        int[] a2 = new int[4];
+        System.out.println(c);
+        System.out.println(x);
+        System.out.println((char)y);
 
-        for (int i = 0; i < a1.length ; i++) {
-            a2[i] = a1[i];
+        //Percorre a tabela ASCII
+        for (int i = 32; i <= 126; i++) {
+            System.out.println((char)i + " : " + i);
         }
 
-        a1[3] = 9;
+        //Nome do materials
+        System.out.print("Piscina de ");
+        System.out.print(nFibra);
+        System.out.println(": " + valorPiscina(100, fibra));
 
-        for(int val : a1)
-            System.out.print(val + ", ");
-        System.out.println();
-        for(int val : a2)
-            System.out.print(val + ", ");
-        System.out.println();
     }
 }
