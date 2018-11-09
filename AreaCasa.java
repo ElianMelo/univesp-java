@@ -17,24 +17,13 @@ class AreaCasa {
     static final int fibra = 2;
     static final int plastico = 3;
 
-    // Nomes dos materiais modo 1
+    // Nomes dos materiais
     static char[][] nomes = {
         {'A', 'l', 'v', 'e', 'n', 'a', 'r', 'i', 'a'},
         {'V', 'i', 'n', 'i', 'l'},
         {'F', 'i', 'b', 'r', 'a'},
         {'P', 'l', 'a', 's', 't', 'i', 'c', 'o'}
     };
-
-    // Nomes dos materiais modo 2
-    // static char[][] nomes = new char[4][9];
-    // nomes[0][0] = 'A';
-    // nomes[0][1] = 'l';
-    // nomes[0][2] = 'v';
-
-    // Nomes dos materiais modo 3
-    // static char[][] = new char [4][];
-    // char[] aux1 = {'A', 'l', 'v', 'e', 'n', 'a', 'r', 'i', 'a'};
-    // nomes[0] = aux1;
 
     // Preço dos materiais
     static double[] precos = {1500, 1100, 750, 500};
@@ -106,59 +95,43 @@ class AreaCasa {
             }
         }
     }
+    // Retorna a matriz com os preços finais.
+    // Parâmetros:
+    //     val - matriz de valores
+    //     desc - matriz de descontos
+    public static double[][] calculaFinal(double[][] val, double[][] desc){
+        double[][] saida = new double[val.length][val[0].length];
+
+        for (int i = 0; i < saida.length; i++) {
+            for (int j = 0; j < saida[0].length ; j++) {
+                saida[i][j] = val[i][j] * (1 - desc[i][j]);
+            }
+        }
+
+        return(saida);
+    }
 
     public static void main(String[] args){
         // Aqui vão os testes
         double[][] valores = new double[4][4]; // Cria uma tabela de valores
+        double[][] desconto = {
+            {0, 0, 0.2, 0.2},
+            {0.05, 0.05, 0.1, 0.15},
+            {0.02, 0.04, 0.08, 0.16},
+            {0, 0, 0, 0.05}
+        };
+        double[][] pFinal = new double[4][4];
 
         carregaVal(valores); // Carrega ela
 
-        System.out.println("Piscina de plástico de 150m2: " + valores[plastico][2]); // Mostra um valor desta tabela
+        pFinal = calculaFinal(valores, desconto);
 
-        // Faz o cálculo da media dos valores referentes a plástico
-        double media = 0;
-
-        for (double valor : valores[plastico]) {
-            media += valor;
-        }
-
-        media /= valores[plastico].length;
-        System.out.println("Média: " + media);
-
-        System.out.println();
-
-        // Percorre a matriz através dos índices
-        for (int i = 0; i < valores.length; i++) {
+        for (int i = 0; i < precos.length; i++) {
             for (int j = 0; j < valores[i].length; j++) {
-                System.out.print(valores[i][j] + " ");
+                System.out.print(pFinal[i][j] + " ");
             }
             System.out.println();
         }
-
-        System.out.println();
-
-        // Percorre a matriz através de seus valores
-        for (double[] linha : valores) {
-            for (double valor : linha) {
-                System.out.print(valor + " ");
-            }
-            System.out.println();
-        }
-
-        System.out.println();
-
-        // Mostra o tamanho dos nomes pelos índices
-        for (int i = alvenaria; i <= plastico; i++) {
-            System.out.print(nomes[i].length + " ");
-        }
-        System.out.println();
-
-        // Mostra o tamanho dos nomes pelos valores
-        for (char[] nome : nomes) {
-            System.out.print(nome[2]);
-            System.out.print(nome.length + " ");
-        }
-        System.out.println();
 
     }
 }
