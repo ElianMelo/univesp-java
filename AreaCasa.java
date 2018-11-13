@@ -123,8 +123,20 @@ class AreaCasa {
             }
             return resp;
         }
+    }
 
-
+    static double[][] subtraiMatrizes(double[][] a, double[][] b){
+        if (a.length != b.length || a[0].length != b[0].length){
+            return null;
+        } else {
+            double[][] resp = new double[a.length][a[0].length];
+            for (int i = 0; i < resp.length; i++) {
+                for (int j = 0; j < resp[0].length; j++) {
+                    resp[i][j] = a[i][j] - b[i][j];
+                }
+            }
+            return resp;
+        }
     }
 
     public static void main(String[] args){
@@ -140,7 +152,7 @@ class AreaCasa {
             {2, 1.5, 2, 2}
         };
 
-        double[][] resp = somaMatrizes(a, b);
+        double[][] resp = subtraiMatrizes(a, b);
 
         for (int i = 0; i < resp.length; i++) {
             for (int j = 0; j < resp[i].length; j++) {
