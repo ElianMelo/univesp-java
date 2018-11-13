@@ -35,7 +35,7 @@ class AreaCasa {
     static void areaCasa(float lateral, float compQuarto){
 
     // Verifica se os valores são positivos
-    if(lateral >= 0 && compQuarto >= 0){
+    if (lateral >= 0 && compQuarto >= 0){
         float areaQuarto; // Area do quarto
         float areaSala; // Area da sala
         float areaTotal; // Area total
@@ -55,7 +55,7 @@ class AreaCasa {
 
     // Valor do metro quadrado de acordo com a área
     static double valor(double area){
-        return(area >= 0 ? valorM2 * area : -1);
+        return (area >= 0 ? valorM2 * area : -1);
     }
 
     // Valor metro quadrado para piscina
@@ -63,12 +63,12 @@ class AreaCasa {
         if(material < alvenaria || material > plastico || area < 0)
             return(-1);
 
-        return(area * precos[material]);
+        return (area * precos[material]);
     }
 
     // Area da piscina
     static double areaPiscina(double raio){
-        return(raio >= 0 ? (Math.PI * Math.pow(raio, 2)) : -1);
+        return (raio >= 0 ? (Math.PI * Math.pow(raio, 2)) : -1);
     }
 
     // Calculo da media
@@ -79,7 +79,7 @@ class AreaCasa {
             resp += valor;
         }
 
-        return(resp/arranjo.length);
+        return (resp/arranjo.length);
     }
 
     // Verifica se o caractere é minusculo
@@ -99,7 +99,7 @@ class AreaCasa {
     // Parâmetros:
     //     val - matriz de valores
     //     desc - matriz de descontos
-    public static double[][] calculaFinal(double[][] val, double[][] desc){
+    static double[][] calculaFinal(double[][] val, double[][] desc){
         double[][] saida = new double[val.length][val[0].length];
 
         for (int i = 0; i < saida.length; i++) {
@@ -108,27 +108,43 @@ class AreaCasa {
             }
         }
 
-        return(saida);
+        return (saida);
+    }
+
+    static double[][] somaMatrizes(double[][] a, double[][] b){
+        if (a.length != b.length || a[0].length != b[0].length){
+            return null;
+        } else {
+            double[][] resp = new double[a.length][a[0].length];
+            for (int i = 0; i < resp.length; i++) {
+                for (int j = 0; j < resp[0].length; j++) {
+                    resp[i][j] = a[i][j] + b[i][j];
+                }
+            }
+            return resp;
+        }
+
+
     }
 
     public static void main(String[] args){
         // Aqui vão os testes
-        double[][] valores = new double[4][4]; // Cria uma tabela de valores
-        double[][] desconto = {
-            {0, 0, 0.2, 0.2},
-            {0.05, 0.05, 0.1, 0.15},
-            {0.02, 0.04, 0.08, 0.16},
-            {0, 0, 0, 0.05}
+        double[][] a = {
+            {1, 3, -2, 3.5},
+            {2, 4, -4, 6},
+            {-2, -1.5, 3, 3}
         };
-        double[][] pFinal = new double[4][4];
+        double[][] b = {
+            {3, 2.5, 0, 0},
+            {1, 2, 4, 2},
+            {2, 1.5, 2, 2}
+        };
 
-        carregaVal(valores); // Carrega ela
+        double[][] resp = somaMatrizes(a, b);
 
-        pFinal = calculaFinal(valores, desconto);
-
-        for (int i = 0; i < precos.length; i++) {
-            for (int j = 0; j < valores[i].length; j++) {
-                System.out.print(pFinal[i][j] + " ");
+        for (int i = 0; i < resp.length; i++) {
+            for (int j = 0; j < resp[i].length; j++) {
+                System.out.print(resp[i][j] + "\t");
             }
             System.out.println();
         }
