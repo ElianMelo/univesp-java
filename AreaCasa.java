@@ -139,6 +139,16 @@ class AreaCasa {
         }
     }
 
+    static double[][] transporMatriz(double[][] m){
+        double[][] trans = new double[m[0].length][m.length];
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < m[0].length; j++) {
+                trans[j][i] = m[i][j];
+            }
+        }
+        return trans;
+    }
+
     public static void main(String[] args){
         // Aqui vão os testes
         double[][] a = {
@@ -146,17 +156,12 @@ class AreaCasa {
             {2, 4, -4, 6},
             {-2, -1.5, 3, 3}
         };
-        double[][] b = {
-            {3, 2.5, 0, 0},
-            {1, 2, 4, 2},
-            {2, 1.5, 2, 2}
-        };
 
-        double[][] resp = subtraiMatrizes(a, b);
+        double[][] trans = transporMatriz(a);
 
-        for (int i = 0; i < resp.length; i++) {
-            for (int j = 0; j < resp[i].length; j++) {
-                System.out.print(resp[i][j] + "\t");
+        for (int i = 0; i < trans.length; i++) {
+            for (int j = 0; j < trans[i].length; j++) {
+                System.out.print(trans[i][j] + "\t");
             }
             System.out.println();
         }
