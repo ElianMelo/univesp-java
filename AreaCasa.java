@@ -17,13 +17,13 @@ class AreaCasa {
     static double valorM2 = 1500;
 
     // Calcula a área da casa
-    static void areaCasa(float lateral, float compQuarto){
+    static void areaCasa(double lateral, double compQuarto){
 
     // Verifica se os valores são positivos
     if (lateral >= 0 && compQuarto >= 0){
-        float areaQuarto; // Area do quarto
-        float areaSala; // Area da sala
-        float areaTotal; // Area total
+        double areaQuarto; // Area do quarto
+        double areaSala; // Area da sala
+        double areaTotal; // Area total
 
         System.out.println("Programa para cálculo da área da casa");
         areaSala = lateral * lateral;
@@ -36,6 +36,18 @@ class AreaCasa {
     }
     else
         System.out.println("Erro: parâmetro < 0");
+    }
+
+    // Calcula a área da casa
+    static double area(double lateral, double compQuarto){
+        double areat = -1; // Area Total
+
+        if (lateral >= 0 && compQuarto >= 0) {
+            areat = lateral * lateral;
+            areat += compQuarto * lateral;
+        }
+
+        return(areat);
     }
 
     // Calcula o valor total da casa

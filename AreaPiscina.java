@@ -17,12 +17,12 @@ class AreaPiscina {
     };
 
     // Calcula a área da piscina
-    static double areaPiscina(double raio){
+    static double area(double raio){
         return (raio >= 0 ? (Math.PI * Math.pow(raio, 2)) : -1);
     }
 
     // Calcula o valor do metro quadrado para piscina
-    static double valorPiscina(double area, int material){
+    static double valor(double area, int material){
         if(material < alvenaria || material > plastico || area < 0)
             return(-1);
 
@@ -49,7 +49,7 @@ class AreaPiscina {
     static void carregaVal(double[][] m){
         for (int i = 0; i < m.length; i++) { //Linhas material
             for (int j = 50; j <= 200; j += 50) { //Colunas áreas
-                m[i][j / 50 - 1] = valorPiscina(j, i);
+                m[i][j / 50 - 1] = valor(j, i);
             }
         }
     }
