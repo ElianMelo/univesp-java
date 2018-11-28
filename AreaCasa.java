@@ -14,9 +14,16 @@ https://www.youtube.com/playlist?list=PLxI8Can9yAHfK6wdaMUO74lmotAP7J7bi
    uma sala, um banheiro e um quarto */
 class AreaCasa {
     // Valor do metro quadrado da casa
-    static double valorM2 = 1500;
+    static double valorM2;
 
-    // Calcula a área da casa
+    AreaCasa(){
+        this(1500.0);
+    }
+    AreaCasa(double valorM2){
+        this.valorM2 = valorM2;
+    }
+
+    // Calcula a área da casa e dos cômodos
     static void areaCasa(double lateral, double compQuarto){
 
     // Verifica se os valores são positivos
@@ -47,7 +54,7 @@ class AreaCasa {
             areat += compQuarto * lateral;
         }
 
-        return(areat);
+        return (areat);
     }
 
     // Calcula o valor total da casa

@@ -36,8 +36,8 @@ class AreaPiscina {
     static double[][] calculaFinal(double[][] val, double[][] desc){
         double[][] saida = new double[val.length][val[0].length];
 
-        for (int i = 0; i < saida.length; i++) {
-            for (int j = 0; j < saida[0].length ; j++) {
+        for(int i = 0; i < saida.length; i++){
+            for(int j = 0; j < saida[0].length ; j++){
                 saida[i][j] = val[i][j] * (1 - desc[i][j]);
             }
         }
@@ -47,8 +47,8 @@ class AreaPiscina {
 
     // Carrega os valores das piscinas na matriz de área x material
     static void carregaVal(double[][] m){
-        for (int i = 0; i < m.length; i++) { //Linhas material
-            for (int j = 50; j <= 200; j += 50) { //Colunas áreas
+        for(int i = 0; i < m.length; i++){ //Linhas material
+            for(int j = 50; j <= 200; j += 50){ //Colunas áreas
                 m[i][j / 50 - 1] = valor(j, i);
             }
         }
