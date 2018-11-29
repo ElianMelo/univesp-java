@@ -14,52 +14,45 @@ https://www.youtube.com/playlist?list=PLxI8Can9yAHfK6wdaMUO74lmotAP7J7bi
    uma sala, um banheiro e um quarto */
 class AreaCasa {
     // Valor do metro quadrado da casa
-    static double valorM2;
+    double valorM2 = 1500;
 
-    AreaCasa(){
-        this(1500.0);
-    }
+    // Comprimento da lateral da area
+    double lateral = 10;
+
+    // Comprimento da lateral maior do quarto
+    double cquarto = 10;
+
+    AreaCasa(){}
+
     AreaCasa(double valorM2){
         this.valorM2 = valorM2;
     }
 
-    // Calcula a área da casa e dos cômodos
-    static void areaCasa(double lateral, double compQuarto){
-
-    // Verifica se os valores são positivos
-    if (lateral >= 0 && compQuarto >= 0){
-        double areaQuarto; // Area do quarto
-        double areaSala; // Area da sala
-        double areaTotal; // Area total
-
-        System.out.println("Programa para cálculo da área da casa");
-        areaSala = lateral * lateral;
-        System.out.println("A área da sala é " + areaSala);
-        areaQuarto = compQuarto * (lateral / 2);
-        System.out.println("A área do quarto é " + areaQuarto);
-        System.out.println("A área do banheiro é " + areaQuarto);
-        areaTotal = areaSala + 2 * areaQuarto;
-        System.out.println("A área total é " + areaTotal);
+    AreaCasa(double lateral, double cquarto){
+        this.lateral = lateral;
+        this.cquarto = cquarto;
     }
-    else
-        System.out.println("Erro: parâmetro < 0");
+
+    AreaCasa(double lateral, double cquarto, double valorM2){
+        this(lateral, cquarto);
+        this.valorM2 = valorM2;
     }
 
     // Calcula a área da casa
-    static double area(double lateral, double compQuarto){
+    double area(){
         double areat = -1; // Area Total
 
-        if (lateral >= 0 && compQuarto >= 0) {
-            areat = lateral * lateral;
-            areat += compQuarto * lateral;
+        if (this.lateral >= 0 && this.cquarto >= 0) {
+            areat = this.lateral * this.lateral;
+            areat += this.cquarto * this.lateral;
         }
 
         return (areat);
     }
 
     // Calcula o valor total da casa
-    static double valor(double area){
-        return (area >= 0 ? valorM2 * area : -1);
+    double valor(double area){
+        return (area >= 0 ? this.valorM2 * area : -1);
     }
 
     public static void main(String[] args){

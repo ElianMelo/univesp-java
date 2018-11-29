@@ -1,16 +1,16 @@
  class Projeto {
-     // Calcula a área de uma casa com piscina
-     static double area(double lateral, double cquarto, double raio) {
-         return(AreaCasa.area(lateral, cquarto) + AreaPiscina.area(raio));
+
+     static double area(AreaCasa casa, AreaPiscina piscina){
+         return(casa.area() + piscina.area());
      }
 
      public static void main(String[] args) {
          // Aqui vão os testes
-         AreaCasa casa1 = new AreaCasa();
-         AreaCasa casa2 = new AreaCasa(1270);
+         AreaCasa casaPrinc1 = new AreaCasa(10, 5);
+         AreaCasa casaPrinc2 = new AreaCasa(20, 5);
+         AreaPiscina piscina1 = new AreaPiscina(10);
 
-         System.out.println(casa1.valor(casa1.area(15, 10)));
-         System.out.println(casa2.valor(casa2.area(18, 8)));
+         System.out.println(area(casaPrinc1, piscina1));
      }
 
  }

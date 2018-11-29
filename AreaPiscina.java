@@ -6,7 +6,7 @@ class AreaPiscina {
     static final int plastico = 3;
 
     // Preço dos materiais
-    static double[] precos = {1500, 1100, 750, 500};
+    double[] precos;
 
     // Nomes dos materiais
     static char[][] nomes = {
@@ -16,13 +16,33 @@ class AreaPiscina {
         {'P', 'l', 'a', 's', 't', 'i', 'c', 'o'}
     };
 
+    // Valor do raio
+    double raio;
+
+    AreaPiscina(){
+        // this(new double[] {1500, 1100, 750, 500});
+        double[] aux = {1500, 1100, 750, 500};
+        this.precos = aux;
+        this.raio = 10;
+    }
+
+    AreaPiscina(double[] precos){
+        this.precos = precos;
+        this.raio = 10;
+    }
+
+    AreaPiscina(double raio){
+        this();
+        this.raio = raio;
+    }
+
     // Calcula a área da piscina
-    static double area(double raio){
-        return (raio >= 0 ? (Math.PI * Math.pow(raio, 2)) : -1);
+    double area(){
+        return (this.raio >= 0 ? (Math.PI * Math.pow(this.raio, 2)) : -1);
     }
 
     // Calcula o valor do metro quadrado para piscina
-    static double valor(double area, int material){
+    double valor(double area, int material){
         if(material < alvenaria || material > plastico || area < 0)
             return(-1);
 
@@ -33,7 +53,7 @@ class AreaPiscina {
     // Parâmetros:
     //     val - matriz de valores
     //     desc - matriz de descontos
-    static double[][] calculaFinal(double[][] val, double[][] desc){
+    double[][] calculaFinal(double[][] val, double[][] desc){
         double[][] saida = new double[val.length][val[0].length];
 
         for(int i = 0; i < saida.length; i++){
@@ -46,7 +66,7 @@ class AreaPiscina {
     }
 
     // Carrega os valores das piscinas na matriz de área x material
-    static void carregaVal(double[][] m){
+    void carregaVal(double[][] m){
         for(int i = 0; i < m.length; i++){ //Linhas material
             for(int j = 50; j <= 200; j += 50){ //Colunas áreas
                 m[i][j / 50 - 1] = valor(j, i);
