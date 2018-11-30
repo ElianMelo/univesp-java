@@ -19,26 +19,18 @@
          return(casa.area() + piscina.area());
      }
 
+     static int buscaSeq(int[] arr, int el){
+         for(int i = 0; i < arr.length; i++)
+             if(arr[i] == el) return(i);
+         return(-1);
+     }
+
      public static void main(String[] args) {
          // Aqui vão os testes
-         Projeto proj = new Projeto(3);
+         int[] v = {9, 8, 4, 6, 3, 4};
 
-         AreaCasa c = new AreaCasa(10, 5);
-         AreaPiscina p = new AreaPiscina(5);
-         Residencia r = new Residencia(c, p);
-         proj.adicionaRes(r);
-
-         c = new AreaCasa(12, 7);
-         p = new AreaPiscina(6);
-         r = new Residencia(c, p);
-         proj.adicionaRes(r);
-
-         c = new AreaCasa(10, 6);
-         p = new AreaPiscina(3.5);
-         r = new Residencia(c, p);
-         proj.adicionaRes(r);
-
-         System.out.println(proj.condominio[1].casa.area());
+         System.out.println(buscaSeq(v, 4));
+         System.out.println(buscaSeq(v, 12));
      }
 
  }
