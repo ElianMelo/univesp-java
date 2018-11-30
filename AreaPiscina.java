@@ -9,11 +9,11 @@ class AreaPiscina {
     double[] precos;
 
     // Nomes dos materiais
-    static char[][] nomes = {
-        {'A', 'l', 'v', 'e', 'n', 'a', 'r', 'i', 'a'},
-        {'V', 'i', 'n', 'i', 'l'},
-        {'F', 'i', 'b', 'r', 'a'},
-        {'P', 'l', 'a', 's', 't', 'i', 'c', 'o'}
+    static String[] nomes = {
+        "Alvenaria",
+        "Vinil",
+        "Fibra",
+        "Plastico"
     };
 
     // Valor do raio
@@ -76,6 +76,50 @@ class AreaPiscina {
 
     public static void main(String[] args){
         // Aqui vão os testes
+        // Verifica as referências das strings
+        String str1 = "Exemplo";
+        String str2 = new String("Exemplo");
+        String str3 = "Outro exemplo";
 
+        if(str1 == str2){} // False
+        if(str1 == str3){} // False
+        str3 = str1;
+        if(str1 == str3){} // True
+
+        // Troca uma letra da string
+        String b = "Meu string";
+
+        System.out.println(b.charAt(4));
+
+        char[] b2 = b.toCharArray();
+        b2[4] = 'b';
+        b = String.valueOf(b2);
+        // ou b = new String(b2);
+
+        System.out.println(b);
+
+        // Concatena valores a string
+        String s = "Meu string";
+
+        s += "oba";
+        s += 'c';
+        s += 4;
+        s += 23.5;
+
+        System.out.println(s);
+
+        // Utiliza os métodos equals e length
+        String a = "Meu string";
+        String a2 = "Meu string";
+
+        System.out.println(a.equals(a2));
+        System.out.println(a.length());
+
+        // Demonstra que s1 recebe um novo endereço
+        String s1 = "Bom dia";
+        String s2 = s1;
+
+        s1 = "Boa noite";
+        System.out.println(s2);
     }
 }
