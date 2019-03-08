@@ -3,8 +3,7 @@ Autor: Elian Melo Morais
 
 Data de Criação: 10/10/2018
 
-Objetivo: O programa tem como objetivo calcular a área de uma casa, a área de sua piscina
-e o valor da piscina de acordo com cada material, além do preço do metro quardrado como referência.
+Objetivo: Calcular a área de uma casa
 
 Baseado no curso Programação de Computadores da  Univesp - Universidade Virtual do Estado de São Paulo.
 Professores responsáveis: Luciano Digiampietri e Norton Trevisan Roman.
